@@ -1,0 +1,31 @@
+order_id,customer_name,product,category,quantity,unit_price,total_revenue,order_date,region,is_returned
+1001,Acme Corp,Laptop Pro 15,Electronics,2,1200.00,2400.00,2024-01-05,North,false
+1002,Globex Inc,Wireless Mouse,Accessories,10,25.50,255.00,2024-01-07,South,false
+1003,Initech LLC,USB-C Hub,Accessories,5,45.00,225.00,2024-01-10,East,false
+1004,Umbrella Co,Monitor 27",Electronics,3,350.00,1050.00,2024-01-12,West,false
+1005,Acme Corp,Keyboard Mechanical,Accessories,4,89.99,359.96,2024-01-15,North,false
+1006,Stark Industries,Laptop Pro 15,Electronics,1,1200.00,1200.00,2024-01-18,East,true
+1007,Wayne Enterprises,Standing Desk,Furniture,2,650.00,1300.00,2024-01-20,West,false
+1008,Globex Inc,Monitor 27",Electronics,2,350.00,700.00,2024-01-22,South,false
+1009,Initech LLC,Laptop Pro 15,Electronics,1,1200.00,1200.00,2024-02-01,East,false
+1010,Umbrella Co,Wireless Mouse,Accessories,15,25.50,382.50,2024-02-03,West,false
+1011,Acme Corp,Standing Desk,Furniture,1,650.00,650.00,2024-02-05,North,false
+1012,Stark Industries,USB-C Hub,Accessories,8,45.00,360.00,2024-02-08,East,false
+1013,Wayne Enterprises,Monitor 27",Electronics,4,350.00,1400.00,2024-02-10,West,false
+1014,Globex Inc,Laptop Pro 15,Electronics,2,1200.00,2400.00,2024-02-14,South,false
+1015,Acme Corp,Keyboard Mechanical,Accessories,6,89.99,539.94,2024-02-18,North,true
+1016,Initech LLC,Standing Desk,Furniture,3,650.00,1950.00,2024-02-20,East,false
+1017,Umbrella Co,Laptop Pro 15,Electronics,1,1200.00,1200.00,2024-03-01,West,false
+1018,Stark Industries,Monitor 27",Electronics,2,350.00,700.00,2024-03-05,East,false
+1019,Wayne Enterprises,Wireless Mouse,Accessories,20,25.50,510.00,2024-03-08,West,false
+1020,Globex Inc,USB-C Hub,Accessories,12,45.00,540.00,2024-03-10,South,false
+1021,Acme Corp,Laptop Pro 15,Electronics,3,1200.00,3600.00,2024-03-15,North,false
+1022,Initech LLC,Monitor 27",Electronics,1,350.00,350.00,2024-03-18,East,false
+1023,Umbrella Co,Standing Desk,Furniture,2,650.00,1300.00,2024-03-20,West,false
+1024,Stark Industries,Keyboard Mechanical,Accessories,3,89.99,269.97,2024-03-25,East,false
+1025,Wayne Enterprises,Laptop Pro 15,Electronics,2,1200.00,2400.00,2024-04-01,West,false
+1026,Globex Inc,Standing Desk,Furniture,1,650.00,650.00,2024-04-05,South,false
+1027,Acme Corp,USB-C Hub,Accessories,7,45.00,315.00,2024-04-08,North,false
+1028,Initech LLC,Wireless Mouse,Accessories,25,25.50,637.50,2024-04-10,East,false
+1029,Umbrella Co,Monitor 27",Electronics,3,350.00,1050.00,2024-04-12,West,true
+1030,Stark Industries,Laptop Pro 15,Electronics,4,1200.00,4800.00,2024-04-18,East,false

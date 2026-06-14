@@ -1,0 +1,21 @@
+employee_id,first_name,last_name,department,job_title,salary,hire_date,city,is_active,years_experience
+E001,Alice,Johnson,Engineering,Senior Engineer,95000,2019-03-15,New York,true,7
+E002,Bob,Smith,Sales,Account Executive,68000,2020-07-01,Chicago,true,4
+E003,Carol,Davis,Engineering,Junior Engineer,72000,2021-11-20,San Francisco,true,3
+E004,David,Wilson,HR,HR Manager,82000,2018-05-10,New York,true,9
+E005,Eve,Martinez,Marketing,Marketing Lead,78000,2020-01-15,Austin,true,6
+E006,Frank,Anderson,Engineering,Senior Engineer,98000,2017-09-01,San Francisco,true,10
+E007,Grace,Taylor,Sales,Sales Manager,92000,2016-04-22,Chicago,true,12
+E008,Hank,Thomas,Finance,Financial Analyst,85000,2019-08-30,New York,true,5
+E009,Ivy,Jackson,Engineering,Staff Engineer,115000,2015-02-14,San Francisco,true,13
+E010,Jack,White,Marketing,Content Writer,58000,2022-03-01,Austin,true,2
+E011,Karen,Harris,HR,Recruiter,61000,2021-06-15,New York,true,3
+E012,Leo,Martin,Sales,Account Executive,67000,2020-09-10,Chicago,false,4
+E013,Mia,Garcia,Engineering,Junior Engineer,73000,2022-08-20,Seattle,true,2
+E014,Nate,Lee,Finance,Senior Analyst,94000,2018-01-05,New York,true,8
+E015,Olivia,Brown,Marketing,Marketing Manager,88000,2017-11-30,Austin,true,11
+E016,Paul,Jones,Engineering,Senior Engineer,97000,2019-05-18,Seattle,true,6
+E017,Quinn,Miller,Sales,Account Executive,65000,2021-02-28,Chicago,true,4
+E018,Rosa,Wilson,HR,HR Director,105000,2014-07-07,New York,true,14
+E019,Sam,Moore,Engineering,Principal Engineer,128000,2013-10-15,San Francisco,true,15
+E020,Tina,Taylor,Finance,CFO,180000,2012-03-01,New York,true,18

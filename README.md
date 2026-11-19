@@ -1,8 +1,5 @@
 <div align="center">
 
-<!-- Logo / Banner -->
-<img width="120" src="https://img.icons8.com/fluency/120/artificial-intelligence.png" alt="AI SQL Assistant Logo"/>
-
 <h1>AI SQL Assistant</h1>
 
 <p>
@@ -11,33 +8,23 @@
   live results, and AI-powered insights — powered by <b>Gemini 2.5 Flash</b>.
 </p>
 
-<!-- Badges -->
-<p>
-  <img src="https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white"/>
-  <img src="https://img.shields.io/badge/FastAPI-0.111-009688?style=flat-square&logo=fastapi&logoColor=white"/>
-  <img src="https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black"/>
-  <img src="https://img.shields.io/badge/PostgreSQL-Supabase-4169E1?style=flat-square&logo=postgresql&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Gemini-2.5%20Flash-4285F4?style=flat-square&logo=google&logoColor=white"/>
-  <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square"/>
-</p>
-
 <!-- Nav -->
 <p>
-  <a href="#-overview">Overview</a> &nbsp;·&nbsp;
-  <a href="#-features">Features</a> &nbsp;·&nbsp;
-  <a href="#-tech-stack">Tech Stack</a> &nbsp;·&nbsp;
-  <a href="#-getting-started">Getting Started</a> &nbsp;·&nbsp;
-  <a href="#-usage">Usage</a> &nbsp;·&nbsp;
-  <a href="#-api-reference">API</a> &nbsp;·&nbsp;
-  <a href="#-project-structure">Structure</a> &nbsp;·&nbsp;
-  <a href="#-troubleshooting">Troubleshooting</a>
+  <a href="#overview">Overview</a> &nbsp;·&nbsp;
+  <a href="#features">Features</a> &nbsp;·&nbsp;
+  <a href="#tech-stack">Tech Stack</a> &nbsp;·&nbsp;
+  <a href="#getting-started">Getting Started</a> &nbsp;·&nbsp;
+  <a href="#usage">Usage</a> &nbsp;·&nbsp;
+  <a href="#api-reference">API</a> &nbsp;·&nbsp;
+  <a href="#project-structure">Structure</a> &nbsp;·&nbsp;
+  <a href="#troubleshooting">Troubleshooting</a>
 </p>
 
 </div>
 
 ---
 
-## 📌 Overview
+## Overview
 
 **AI SQL Assistant** is a full-stack web application that removes the barrier between non-technical users and their data. Instead of writing SQL, users upload a spreadsheet and ask questions like they would to a colleague.
 
@@ -47,37 +34,37 @@ Under the hood, Google Gemini 2.5 Flash generates a precise PostgreSQL query, ex
 
 ---
 
-## ✨ Features
+## Features
 
 <table>
 <tr>
 <td width="50%">
 
-**📁 Multi-format Upload**
-Drag-and-drop CSV, XLSX, and XLS files up to 50 MB. Encoding is auto-detected.
+**Multi-format Upload**
+Drag-and-drop CSV, XLSX and XLS files. CSV files are read as UTF-8, falling back to Latin-1 and CP1252.
 
-**🧠 Auto Schema Detection**
+**Auto Schema Detection**
 Column types are inferred from data and mapped to native PostgreSQL types (BIGINT, DOUBLE PRECISION, TEXT, BOOLEAN, TIMESTAMP).
 
-**💬 Natural Language → SQL**
-Ask anything in plain English. Gemini 2.5 Flash generates a safe, accurate SELECT query every time.
+**Natural Language → SQL**
+Ask in plain English. Gemini 2.5 Flash, called through Google ADK, writes a PostgreSQL SELECT query for the uploaded table.
 
-**📊 Auto Visualisation**
-Results are automatically rendered as bar or pie charts using Recharts — no configuration needed.
+**Auto Visualisation**
+Results with a text column and a numeric column are drawn as a bar or pie chart with Recharts.
 
 </td>
 <td width="50%">
 
-**⚡ Instant Execution**
-Generated SQL is executed directly against your PostgreSQL database and results appear in under a second.
+**Query Execution**
+The generated SQL runs against PostgreSQL in a read-only transaction, and up to 500 rows come back with a short explanation.
 
-**📜 Query History**
+**Query History**
 Every question, generated SQL, and AI answer is stored. Replay any past query with one click.
 
-**🔒 Read-only Safety**
-Only `SELECT` and `WITH` queries are ever executed. INSERT, UPDATE, DELETE, DROP, and ALTER are blocked at the code level.
+**Read-only Safety**
+Generated SQL is treated as untrusted. It must be a single `SELECT` or `WITH` statement with no write keywords, then runs in a PostgreSQL `READ ONLY` transaction with a 10-second timeout that is always rolled back. Optionally it runs as a separate SELECT-only database role. See [Read-only SQL](#read-only-sql).
 
-**🗑️ Full Dataset Lifecycle**
+**Full Dataset Lifecycle**
 Upload, preview, query, and delete datasets. Deleting a dataset drops its PostgreSQL table automatically.
 
 </td>
@@ -86,7 +73,7 @@ Upload, preview, query, and delete datasets. Deleting a dataset drops its Postgr
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Layer | Technology | Purpose |
 |-------|-----------|---------|
@@ -103,7 +90,7 @@ Upload, preview, query, and delete datasets. Deleting a dataset drops its Postgr
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -119,8 +106,8 @@ Upload, preview, query, and delete datasets. Deleting a dataset drops its Postgr
 ### Step 1 — Clone
 
 ```bash
-git clone <your-repo-url>
-cd "Anand Task-2"
+git clone https://github.com/anandmadhapan/AI-SQL-ASSISTANT.git
+cd AI-SQL-ASSISTANT
 ```
 
 ---
@@ -191,7 +178,7 @@ Open **http://localhost:5173** in your browser.
 
 ---
 
-## 📖 Usage
+## Usage
 
 ### 1. Upload a dataset
 
@@ -217,10 +204,10 @@ Group by region and count the number of orders
 ### 3. Explore results
 
 Each response includes:
-- ✅ An AI-written natural-language explanation
-- 🔍 The generated SQL (expandable / copyable)
-- 📋 A scrollable result table
-- 📊 An auto-generated chart (when data supports it)
+- An AI-written natural-language explanation
+- The generated SQL (expandable / copyable)
+- A scrollable result table
+- An auto-generated chart (when data supports it)
 
 ### 4. Review history
 
@@ -228,7 +215,7 @@ Switch to the **History** tab to see all past queries for the dataset. Click **R
 
 ---
 
-## 🌐 API Reference
+## API Reference
 
 All endpoints are prefixed with the server base URL (`http://localhost:8001`).
 
@@ -278,10 +265,10 @@ curl -X POST http://localhost:8001/query/1/query \
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
-Anand Task-2/
+AI-SQL-ASSISTANT/
 │
 ├── .gitattributes                  # Enforce LF line endings
 ├── README.md
@@ -344,7 +331,7 @@ Anand Task-2/
 
 ---
 
-## ⚙️ Environment Variables
+## Environment Variables
 
 | Variable | Required | Description | Default |
 |----------|----------|-------------|---------|
@@ -356,10 +343,12 @@ Anand Task-2/
 | `DB_PASSWORD` | **Yes** | Database password | — |
 | `GOOGLE_API_KEY` | **Yes** | Google AI / Gemini API key | — |
 | `SECRET_KEY` | **Yes** | App secret (change in prod) | `task2-secret-key` |
+| `READONLY_DATABASE_URL` | No | Connection URL for a SELECT-only role used to run generated SQL | app connection |
+| `AI_SQL_TIMEOUT_MS` | No | Statement timeout for generated SQL | `10000` |
 
 ---
 
-## 🏭 Production Deployment
+## Production Deployment
 
 ```bash
 # Backend — 4 worker processes
@@ -380,7 +369,28 @@ npm run build
 
 ---
 
-## 🔧 Troubleshooting
+## Read-only SQL
+
+`Backend/services/sql_guard.py` runs every generated query through three layers, and any one of them stops a write:
+
+1. **Static check.** One `SELECT` or `WITH` statement only; no `INSERT`, `UPDATE`, `DELETE`, `DROP`, `ALTER`, `TRUNCATE`, `CREATE`, `GRANT`, `COPY`, `MERGE` or `INTO`.
+2. **Read-only transaction.** The query runs after `SET TRANSACTION READ ONLY` with a statement timeout, and the transaction is always rolled back. PostgreSQL itself then refuses writes, including data-modifying CTEs, `SELECT ... INTO` and `nextval()`.
+3. **Read-only role (optional).** Create the role with [`docs/readonly_role.sql`](./docs/readonly_role.sql) and set `READONLY_DATABASE_URL`. The role has SELECT grants only, including on tables created by future uploads.
+
+### Tests
+
+```bash
+pip install pytest
+cd Backend
+pytest tests                                   # static checks only
+TEST_DATABASE_URL=postgresql+psycopg2://postgres@localhost:5432/test pytest tests   # adds database tests
+```
+
+The database tests need a disposable PostgreSQL database; they create and drop a table called `t_sales`.
+
+---
+
+## Troubleshooting
 
 | Symptom | Cause | Fix |
 |---------|-------|-----|
@@ -393,25 +403,17 @@ npm run build
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 Detailed documentation is in the [`/docs`](./docs) folder:
 
-- 📄 [API Documentation](./docs/api_documentation.md) — all endpoints with request/response examples
-- 🏗 [Architecture](./docs/architecture.md) — system design, AI pipeline, design decisions
-- 🗃 [Database Schema](./docs/database_schema.md) — DDL, type mapping, JSON structure
-- 📊 [Sample Datasets](./docs/sample_datasets/README.md) — ready-to-use test data
+- [API Documentation](./docs/api_documentation.md) — all endpoints with request/response examples
+- [Architecture](./docs/architecture.md) — system design, AI pipeline, design decisions
+- [Database Schema](./docs/database_schema.md) — DDL, type mapping, JSON structure
+- [Sample Datasets](./docs/sample_datasets/README.md) — ready-to-use test data
 
 ---
 
-## 📄 License
+## License
 
-Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information.
-
----
-
-<div align="center">
-
-Made with ❤️ using **FastAPI** · **React** · **Gemini 2.5 Flash** · **PostgreSQL**
-
-</div>
+MIT. See [LICENSE](LICENSE).

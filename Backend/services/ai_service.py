@@ -24,6 +24,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import text
 
 from models.models import QueryHistory
+from services.sql_guard import run_read_only_query
 
 _APP_NAME = "Task2SQLAssistant"
 _USER_ID  = "default_user"
@@ -266,6 +267,7 @@ def _run_summary_agent_in_thread(
         _cleanup_loop(loop)
 
 
+
 # =============================================
 # Helper: Safe SQL executor
 # =============================================
@@ -274,20 +276,14 @@ def _execute_sql_safe(
     sql: str,
 ) -> tuple[Optional[list], Optional[list], Optional[str]]:
     """
-    Execute a SELECT/WITH query inside a savepoint.
+    Execute a single SELECT/WITH query read-only (see services/sql_guard.py).
     Returns (columns, rows, error_or_None). Rows capped at 500.
     """
-    clean = sql.strip().rstrip(";")
-    if not clean.upper().lstrip().startswith(("SELECT", "WITH")):
-        return None, None, "Only SELECT / WITH queries are permitted."
     try:
-        with db.begin_nested():
-            result = db.execute(text(clean))
-            rows   = result.fetchall()
-            cols   = list(result.keys())
-            return cols, [dict(zip(cols, r)) for r in rows[:500]], None
+        cols, rows = run_read_only_query(db, sql)
     except Exception as exc:
         return None, None, str(exc)
+    return cols, [dict(zip(cols, r)) for r in rows[:500]], None
 
 
 # =============================================
